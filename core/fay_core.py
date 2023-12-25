@@ -523,21 +523,21 @@ class FeiFei:
                     self.__audio_queue.append(content)
                     # wsa_server.get_instance().add_cmd(content)
 
-                    if self.deviceConnect is not None:
-                        try:
-                            self.deviceConnect.send(b'\x00\x01\x02\x03\x04\x05\x06\x07\x08') # 发送音频开始标志，同时也检查设备是否在线
-                            wavfile = open(os.path.abspath(file_url),'rb')
+                if self.deviceConnect is not None:
+                    try:
+                        self.deviceConnect.send(b'\x00\x01\x02\x03\x04\x05\x06\x07\x08') # 发送音频开始标志，同时也检查设备是否在线
+                        wavfile = open(os.path.abspath(file_url),'rb')
+                        data = wavfile.read(1024)
+                        total = 0
+                        while data:
+                            total += len(data)
+                            self.deviceConnect.send(data)
                             data = wavfile.read(1024)
-                            total = 0
-                            while data:
-                                total += len(data)
-                                self.deviceConnect.send(data)
-                                data = wavfile.read(1024)
-                                time.sleep(0.001)
-                            self.deviceConnect.send(b'\x08\x07\x06\x05\x04\x03\x02\x01\x00')# 发送音频结束标志
-                            util.log(1, "远程音频发送完成：{}".format(total))
-                        except socket.error as serr:
-                            util.log(1,"远程音频输入输出设备已经断开：{}".format(serr))
+                            time.sleep(0.001)
+                        self.deviceConnect.send(b'\x08\x07\x06\x05\x04\x03\x02\x01\x00')# 发送音频结束标志
+                        util.log(1, "远程音频发送完成：{}".format(total))
+                    except socket.error as serr:
+                        util.log(1,"远程音频输入输出设备已经断开：{}".format(serr))
 
                 
                 
