@@ -196,7 +196,7 @@ python main.py
 | ./ai_module/nlp_lingju.py | 灵聚NLP api(支持GPT3.5及多应用)（NLP多选1） | https://open.lingju.ai   需联系客服务开通gpt3.5权限 |
 | ./ai_module/xf_ltp.py     | 讯飞 情感分析              | https://www.xfyun.cn/service/emotion-analysis                |
 | ./utils/ngrok_util.py     | ngrok.cc 外网穿透（可选）  | http://ngrok.cc                                              |
-| ./ai_module/yuan_1_0.py    | 浪潮源大模型（NLP 3选1）  | https://air.inspur.com/                                              |
+| ./ai_module/yuan_1_0.py    | 浪潮源大模型（NLP 3选1）  | https://air.inspur.com/    or https://www.airyuan.cn/home  |
 | ./ai_module/chatgpt.py     | ChatGPT（NLP 3选1）  | *******                                              |
 | ./ai_module/xf_aiui.py    | 讯飞自然语言处理（NLP 3选1）   | https://aiui.xfyun.cn/solution/webapi                        |
 
